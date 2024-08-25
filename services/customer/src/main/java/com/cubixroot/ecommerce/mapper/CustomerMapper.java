@@ -1,22 +1,33 @@
 package com.cubixroot.ecommerce.mapper;
 
-import com.cubixroot.ecommerce.dto.CustomerDTO;
+import com.cubixroot.ecommerce.dto.CustomerRequest;
+import com.cubixroot.ecommerce.dto.CustomerResponse;
 import com.cubixroot.ecommerce.model.Customer;
 
 public class CustomerMapper {
 
-    public Customer toCustomer(CustomerDTO customerDTO) {
+    public Customer toCustomer(CustomerRequest customerRequest) {
 
-        if(customerDTO == null) {
+        if(customerRequest == null) {
             return null;
         }
 
         return Customer.builder()
-                .id(customerDTO.id())
-                .firstname(customerDTO.firstname())
-                .lastname(customerDTO.lastname())
-                .email(customerDTO.email())
-                .address(customerDTO.address())
+                .id(customerRequest.id())
+                .firstname(customerRequest.firstname())
+                .lastname(customerRequest.lastname())
+                .email(customerRequest.email())
+                .address(customerRequest.address())
                 .build();
+    }
+
+    public CustomerResponse fromCustomer(Customer customer) {
+        return new CustomerResponse(
+                customer.getId(),
+                customer.getFirstname(),
+                customer.getLastname(),
+                customer.getEmail(),
+                customer.getAddress()
+        );
     }
 }

@@ -4,7 +4,7 @@ import com.cubixroot.ecommerce.model.Address;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 
-public record CustomerDTO(
+public record CustomerRequest(
          String id,
 
          @NotNull(message = "Customer fistname is required")

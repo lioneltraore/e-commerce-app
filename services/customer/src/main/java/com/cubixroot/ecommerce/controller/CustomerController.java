@@ -1,14 +1,14 @@
 package com.cubixroot.ecommerce.controller;
 
-import com.cubixroot.ecommerce.dto.CustomerDTO;
+import com.cubixroot.ecommerce.dto.CustomerRequest;
+import com.cubixroot.ecommerce.dto.CustomerResponse;
 import com.cubixroot.ecommerce.service.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/customer")
@@ -18,7 +18,18 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping
-    ResponseEntity<String> createCustomer(@RequestBody @Valid CustomerDTO customerDTO) {
-        return ResponseEntity.ok(customerService.createCustomer(customerDTO));
+    ResponseEntity<String> createCustomer(@RequestBody @Valid CustomerRequest customerRequest) {
+        return ResponseEntity.ok(customerService.createCustomer(customerRequest));
+    }
+
+    @PutMapping
+    ResponseEntity<Void> updateCustomer(@RequestBody @Valid CustomerRequest customerRequest) {
+        customerService.updateCustomer(customerRequest);
+        return ResponseEntity.accepted().build();
+    }
+
+    @GetMapping
+    ResponseEntity<List<CustomerResponse>> findAllCustomers() {
+        return ResponseEntity.ok(customerService.findAllCustomers());
     }
 }
