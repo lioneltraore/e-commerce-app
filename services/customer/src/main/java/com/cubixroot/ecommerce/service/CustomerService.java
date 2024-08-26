@@ -63,4 +63,17 @@ public class CustomerService {
     public Boolean existsById(String customerId) {
         return customerRepository.findById(customerId).isPresent();
     }
+
+    public CustomerResponse findCustomerById(String customerId) {
+
+        return customerRepository.findById(customerId)
+                .map(customerMapper::fromCustomer)
+                .orElseThrow(()-> new CustomerNotFoundException(
+                        String.format("No customer found with the provided ID:: %s", customerId)
+                ));
+    }
+
+    public void deleteUser(String customerId) {
+        customerRepository.deleteById(customerId);
+    }
 }
