@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url:  jdbc:postgresql://172.18.0.2:5432/product
+    url:  jdbc:postgresql://localhost:5432/product
     username: cubixroot
     password: cubixroot
     driver-class-name: org.postgresql.Driver

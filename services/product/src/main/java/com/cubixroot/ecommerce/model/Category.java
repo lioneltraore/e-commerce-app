@@ -1,8 +1,6 @@
 package com.cubixroot.ecommerce.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -15,6 +13,8 @@ import java.util.List;
 @Entity
 public class Category {
 
+    @Id
+    @GeneratedValue
     private Integer id;
     private String name;
     private String description;
