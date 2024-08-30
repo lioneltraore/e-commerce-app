@@ -3,7 +3,9 @@ package com.cubixroot.ecommerce.mapper;
 import com.cubixroot.ecommerce.dto.CustomerRequest;
 import com.cubixroot.ecommerce.dto.CustomerResponse;
 import com.cubixroot.ecommerce.model.Customer;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomerMapper {
 
     public Customer toCustomer(CustomerRequest customerRequest) {
