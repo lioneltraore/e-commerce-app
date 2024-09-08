@@ -9,8 +9,9 @@ This is a solution that helps establishments to manage all they need.
   - [Gateway](#gateway)
   - [Discovery](#discovery)
   - [Config server](#config)
-  - [Student service](#student)
-  - [School service](#school)
+  - [Customer service](#customer)
+  - [Product service](#product)
+  - [Order service](#order)
 
 ## App Architecture
 
@@ -26,6 +27,10 @@ This is a solution that helps establishments to manage all they need.
 ### Product service
 
 ![](./diagrams/product-sb-generator.png)
+
+### Order service
+
+![](./diagrams/order-sb-generator.png)
 
 ## Author
 
