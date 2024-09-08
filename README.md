@@ -1,6 +1,6 @@
 # Establishment Manager
 
-This is a solution that helps establishments to manage all they need.
+This is an E-commerce microservice app.
 
 ## Table of contents
 
